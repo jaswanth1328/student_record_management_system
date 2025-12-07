@@ -1,0 +1,113 @@
+/* ----------------- General Styles ----------------- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #dce35b, #45b649);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+.center-box {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    transform: scale(0);
+    opacity: 0;
+    transition: 0.5s ease;
+}
+.center-box.show {
+    transform: scale(1);
+    opacity: 1;
+}
+h1, h2, h3 { color: #003366; margin-bottom: 20px; }
+input, select {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid #888;
+    font-size: 16px;
+    transition: 0.3s;
+}
+input:focus { border-color: #0055ff; outline: none; }
+button {
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 15px;
+    border: none;
+    background: #0055ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+    background: #003ebf;
+    transform: scale(1.05);
+}
+.hidden { display: none; }
+small { color: #555; font-size: 0.85em; }
+
+/* ----------------- Card Styles ----------------- */
+.card {
+    display: inline-block;
+    width: 28%;
+    margin: 10px 1%;
+    padding: 25px;
+    background: linear-gradient(to bottom right, #e8f0ff, #cce0ff);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.card:hover { 
+    transform: scale(1.05) rotate(1deg);
+    background: linear-gradient(to bottom right, #cce0ff, #99ccff);
+}
+
+/* ----------------- Table Styles ----------------- */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+th { background: #0055ff; color: white; }
+tr:nth-child(even) { background: #f2f2f2; }
+tr:hover { background: #e0f0ff; }
+
+/* ----------------- Popup Animation ----------------- */
+.modal-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.4s forwards;
+    z-index: 1000;
+}
+.modal-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 70%;
+    max-height: 80%;
+    overflow-y: auto;
+    animation: scaleIn 0.4s forwards;
+}
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes scaleIn { from {transform: scale(0.8);} to {transform: scale(1);} }

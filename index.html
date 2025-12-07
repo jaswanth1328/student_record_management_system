@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HOME PAGE -->
+<div class="center-box show" id="homePage">
+    <h1>🎓 STUDENT PORTAL</h1>
+    <div class="card" onclick="showPage('studentRegister')">Student Register</div>
+    <div class="card" onclick="showPage('studentLogin')">Student Login</div>
+    <div class="card" onclick="showPage('facultyLogin')">Faculty Login</div>
+</div>
+
+<!-- STUDENT REGISTRATION -->
+<div class="center-box hidden" id="studentRegister">
+    <h2>Student Registration</h2>
+    <input type="text" id="regName" placeholder="Enter Full Name">
+    <small>Example: John Doe</small><br>
+    
+    <input type="text" id="regBranch" placeholder="Enter Branch">
+    <small>Example: CSE, ECE, EEE</small><br>
+    
+    <input type="text" id="regDept" placeholder="Enter Department">
+    <small>Example: AI, ML, IoT, Power</small><br>
+    
+    <input type="password" id="regPass" placeholder="Set Password">
+    <small>Example: 1234</small><br>
+    
+    <button onclick="registerStudent()">Register</button>
+    <button onclick="showPage('homePage')">Back</button>
+</div>
+
+<!-- STUDENT LOGIN -->
+<div class="center-box hidden" id="studentLogin">
+    <h2>Student Login</h2>
+    <input type="text" id="stuId" placeholder="Enter Student ID (e.g., STU001)">
+    <small>Your Student ID provided at registration</small><br>
+    
+    <input type="password" id="stuPass" placeholder="Password (e.g., 1234)">
+    <small>Your password set during registration</small><br>
+    
+    <button onclick="studentLogin()">Login</button>
+    <button onclick="showPage('homePage')">Back</button>
+</div>
+
+<!-- STUDENT DASHBOARD -->
+<div class="center-box hidden" id="studentDash">
+    <h2>Welcome <span id="stuWelcome"></span></h2>
+    <p><strong>Student ID:</strong> <span id="stuIdDisplay"></span></p>
+    <p><strong>Branch:</strong> <span id="stuBranch"></span> | <strong>Department:</strong> <span id="stuDept"></span></p>
+    <p><strong>Faculty:</strong> <span id="stuFaculty"></span></p>
+
+    <h3>Your Academic Details</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Attendance (%)</th>
+                <th>Marks</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="stuAttendance">0%</td>
+                <td id="stuMarks">0</td>
+                <td id="stuGrade">N/A</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="logout()">Logout</button>
+</div>
+
+<!-- FACULTY LOGIN -->
+<div class="center-box hidden" id="facultyLogin">
+    <h2>Faculty Login</h2>
+    <input type="text" id="facId" placeholder="Faculty ID (e.g., FAC001)">
+    <input type="password" id="facPass" placeholder="Password (e.g., fac123)">
+    <button onclick="facultyLogin()">Login</button>
+    <button onclick="showPage('homePage')">Back</button>
+</div>
+
+<!-- FACULTY DASHBOARD -->
+<div class="center-box hidden" id="facultyDash">
+    <h2>Faculty Dashboard</h2>
+    <div class="card" onclick="postAttendance()">Post Attendance</div>
+    <div class="card" onclick="updateMarks()">Update Marks</div>
+    <div class="card" onclick="viewStrength()">Total Students</div>
+    <h3>Student Details</h3>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Name</th><th>Branch</th><th>Dept</th><th>Marks</th><th>Grade</th><th>Attendance</th></tr>
+        </thead>
+        <tbody id="studentRows"></tbody>
+    </table>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
